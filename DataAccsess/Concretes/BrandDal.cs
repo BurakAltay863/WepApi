@@ -1,0 +1,30 @@
+﻿using DataAccsess.Abstracts;
+using Entities.Concretes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccsess.Concretes;
+
+public class BrandDal : IBrandDal
+{
+   List<Brand> _brands; 
+    public BrandDal()
+    {
+        _brands = new List<Brand>();
+        _brands.Add(new Brand { Id=1, Name="Bilgisayar", CreateDate=DateTime.Now });
+        _brands.Add(new Brand { Id = 2, Name = "Mouse", CreateDate = DateTime.Now });
+        _brands.Add(new Brand { Id = 3, Name = "Klavye", CreateDate = DateTime.Now });
+    }
+    public void Add(Brand brand)
+    {
+        _brands.Add(brand);
+    }
+
+    public List<Brand> GetAll()
+    {
+       return _brands;
+    }
+}
